@@ -56,7 +56,7 @@ console.log(loading)
         {/* Image side */}
         <div 
           className="h-1/2 lg:h-full lg:w-1/2 flex-none bg-cover bg-center rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden shadow-lg"
-          style={{ backgroundImage: `url(${readImage})` }}
+          style={{ backgroundImage: `url(${bookDetails.image})` }}
           title="Man holding a book"
         >
         </div>
@@ -71,7 +71,7 @@ console.log(loading)
           <div className="flex items-center">
             <div className="text-sm">
               <span className="text-gray-600   flex"><p className='font-bold'>Author</p>: {bookDetails.author}</span>
-              <span className="text-gray-600 flex"><p className='font-bold'>Publish Year</p>: {bookDetails.publishYear}</span>
+              <span className="text-gray-600 flex"><p className='font-bold'>Date</p>:  {bookDetails.updatedAt.split("T")[0]}</span>
             </div>
           </div>
         </div>

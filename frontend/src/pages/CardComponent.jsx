@@ -10,7 +10,9 @@ export const CardComponent = ({books,internalError}) => {
  
   <div className='grid grid-cols-1  gap-4 '>
   {
-    books.length > 0       ?  books?.map((book,index)=>(
+    books.length > 0       ?  books?.slice() // create a shallow copy to avoid mutating original
+    .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
+    .map((book,index)=>(
           <div className="relative rounded overflow-hidden shadow-sm mr-5 border-gray  grid grid-row-2" key={index} >
                  
           {/* <img className="w-full" src="/img/card-top.jpg" alt="Sunset in the mountains"></img> */}
@@ -22,7 +24,7 @@ export const CardComponent = ({books,internalError}) => {
           </div>
           <div className="px-6 pt-4 pb-2">
             <span className="inline-block bg-blue-700 rounded-full px-3 py-1 text-sm font-semibold text-green-200 mr-2 mb-2">Author: {book.author}</span>
-            <span className="inline-block bg-green-700 rounded-full px-3 py-1 text-sm font-semibold text-blue-200 mr-2 mb-2">Publish Year: {book.publishYear}</span>
+            <span className="inline-block bg-green-700 rounded-full px-3 py-1 text-sm font-semibold text-blue-200 mr-2 mb-2">Date:  {book.updatedAt.split("T")[0]}</span>
             <div className='block xs:float-none sm:float-right lg:float-right px-3 py-1 mr-2 mb-2'>
                        <Link to={`books/delete/${book._id}` }>
                             <MdOutlineDelete size={20} className='text-red-600 text-2xl inline mr-2 ' />

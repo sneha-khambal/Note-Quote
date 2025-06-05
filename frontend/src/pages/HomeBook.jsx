@@ -102,7 +102,7 @@ export const HomeBook = () => {
         ""
       )}
       <h1 className="text-3xl my-8 flex justify-center">
-        {listButton ? " Book List" : "Book card"}
+      My Moments
       </h1>
       {loading ? (
         <Spinner />

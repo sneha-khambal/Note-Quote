@@ -19,12 +19,14 @@ export const ListComponent = ({books,internalError} ) => {
             <th className='border border-slate-600 rounded-md'>No.</th>
             <th className='border border-slate-600 rounded-md'>Title</th>
             <th className='border border-slate-600 rounded-md max-md:hidden'>Author</th>
-            <th className='border border-slate-600 rounded-md max-md:hidden'>Publish Year</th>
+            <th className='border border-slate-600 rounded-md max-md:hidden'>Date</th>
             <th className='border border-slate-600 rounded-md '>Operations</th>
         </tr>
     </thead>
     <tbody>
-     {  books?.map((book,index)=>(
+     {  books?.slice() // create a shallow copy to avoid mutating original
+  .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt))
+  .map((book,index)=>(
         
         <tr key={book._id} className='h-8'>
             <td className=' border border-slate-700 rounded-md text-center'>
@@ -37,7 +39,7 @@ export const ListComponent = ({books,internalError} ) => {
                 {book.author}
             </td>
             <td className=' border border-slate-700 rounded-md text-center max-md:hidden'>
-                {book.publishYear}
+                {book.updatedAt.split("T")[0]}
             </td>
             <td className=' border border-slate-700 rounded-md text-center  '>
              <div className='flex justify-center lg:gap-x-4 gap-x-1'>

@@ -22,10 +22,27 @@ const [error,setError] = useState('')
  
   
   const onSubmit = data => {
-    if(bookDetail){
-   
+   console.log(data)
+   const formData = new FormData();
 
-    axios.put(  `http://localhost:3000/Books/updateBook/${id}`,data)
+   // Append the image file (ensure it's an array and take the first element)
+   if (data.image && data.image[0]) {
+     formData.append('image', data.image[0]);
+   } else {
+     console.log('No image selected');
+   }
+ 
+   // Append other fields to the FormData
+   formData.append('title', data.title);
+   formData.append('author', data.author);
+   formData.append('script', data.script);
+    if(bookDetail){
+
+    axios.put(  `http://localhost:3000/Books/updateBook/${id}`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
     .then((response)=>{
       console.log(response.data);
       setInternalError('')
@@ -48,7 +65,11 @@ const [error,setError] = useState('')
     })
   }
   else{
-    axios.post( `http://localhost:3000/Books/createBook`,data)
+    axios.post( `http://localhost:3000/Books/createBook`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
     .then((response)=>{
       console.log(response.data.data)
       setInternalError('')
@@ -149,16 +170,16 @@ console.log(responseData)
 
   {/* Publish Year Field */}
   <div className="mb-4">
-    <input
-      {...register('publishYear', { required: 'PublishYear is required' })}
-      type="number"
-      placeholder="Publish Year"
-      className="px-4 py-3 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
-    />
-    {errors.publishYear && (
-      <p className="text-red-500 text-sm mt-1">{errors.publishYear.message}</p>
-    )}
-  </div>
+  <input
+    {...register('image' )}
+    type="file"
+    accept="image/*"
+    className="px-4 py-3 border border-gray-300 rounded-xl w-full focus:outline-none focus:ring-2 focus:ring-blue-500"
+  />
+  {errors.image && (
+    <p className="text-red-500 text-sm mt-1">{errors.image.message}</p>
+  )}
+</div>
 
   {/* Submit Button */}
   <button
