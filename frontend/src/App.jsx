@@ -5,8 +5,7 @@ import { DeleteBook } from './pages/DeleteBook';
 import { EditBook } from './pages/EditBook';
 import { HomeBook } from './pages/HomeBook';
 import { ShowBook } from './pages/ShowBook';
-import { ListComponent } from './pages/ListComponent';
-import { CardComponent } from './pages/CardComponent';
+ 
 
 
  const App = () => {

@@ -3,7 +3,7 @@ import { Link, useOutletContext, useParams } from 'react-router-dom';
 import { AiOutlineEdit } from 'react-icons/ai';
 import { BsInfoCircle } from 'react-icons/bs';
 import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md'
-import { CreateNewEntryComponent } from '../components/CreateNewEntryComponent';
+import { CreateNewEntryComponent } from './CreateNewEntryComponent';
 
 export const ListComponent = ({books,internalError} ) => {
 //    const {books} = useParams()
@@ -13,7 +13,7 @@ export const ListComponent = ({books,internalError} ) => {
  
  <div>
       {books.length > 0 ?
-    <table className='w-full border-separate border-spacing-2 bg-gray-100 p-6 h-auto'>
+    <table className='w-full border-separate border-spacing-2   p-6 h-auto'>
     <thead>
         <tr>
             <th className='border border-slate-600 rounded-md'>No.</th>

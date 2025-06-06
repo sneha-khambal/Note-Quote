@@ -7,8 +7,8 @@ import { AiOutlineEdit } from "react-icons/ai";
 import { BsInfoCircle } from "react-icons/bs";
 import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
 import { BackButton } from "../components/BackButton";
-import { ListComponent } from "./ListComponent";
-import { CardComponent } from "./CardComponent";
+import { ListComponent } from "../components/ListComponent";
+import { CardComponent } from "../components/CardComponent";
 import { DeleteAlertComponent } from "../components/deleteAlertComponent";
 
 export const HomeBook = () => {
