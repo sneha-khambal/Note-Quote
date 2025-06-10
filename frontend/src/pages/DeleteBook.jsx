@@ -5,8 +5,8 @@ import axios from 'axios';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
 import { MdWarning } from 'react-icons/md';
 import { BackButton } from '../components/BackButton';
-import { DeleteAlertComponent } from '../components/deleteAlertComponent';
-
+import { DeleteAlertComponent } from 'frontend/src/components/DeleteAlertComponent.jsx';
+ 
  
 
 export const DeleteBook = ({REACT_BASE_URL}) => {
