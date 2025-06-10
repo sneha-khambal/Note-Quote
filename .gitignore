@@ -35,6 +35,6 @@ frontend/build/
  
 
 # Backend specific
-backend/node_modules/
+# backend/node_modules/
 # backend/config.js
 backend/uploads
