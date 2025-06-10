@@ -9,7 +9,7 @@ import { MdOutlineAddBox, MdOutlineDelete } from "react-icons/md";
 import { BackButton } from "../components/BackButton";
 import { ListComponent } from "../components/ListComponent";
 import { CardComponent } from "../components/CardComponent";
-import { DeleteAlertComponent } from 'frontend/src/components/DeleteAlertComponent.jsx';
+import { DeleteAlertComponent } from 'frontend\src\components\DeleteAlertComponent.jsx';
 
 export const HomeBook = ({REACT_BASE_URL}) => {
   console.log(REACT_BASE_URL)
