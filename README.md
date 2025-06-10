@@ -34,7 +34,7 @@
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/yourusername/mymoments.git
+git https://github.com/sneha-khambal/mymoments.git
 cd mymoments
 ```
 
@@ -93,7 +93,7 @@ MyMoments/
 
 ## ✍️ Author
 
-- [Your Name](https://github.com/yourusername)
+- [Sneha Khambal](https://github.com/sneha-khambal)
 
 ---
  
