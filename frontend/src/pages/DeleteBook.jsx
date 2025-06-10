@@ -9,7 +9,7 @@ import { DeleteAlertComponent } from '../components/deleteAlertComponent';
 
  
 
-export const DeleteBook = () => {
+export const DeleteBook = ({REACT_BASE_URL}) => {
   const [deleteBook,setDeleteBook] = useState('');
   const [confirm,setOnConfirm] = useState(false);
   const [showBox,setShowBox] = useState(false);
@@ -20,9 +20,9 @@ export const DeleteBook = () => {
 
   const deleteFunction =()=>{
     setOnConfirm(false)
-    axios.delete(`http://localhost:3000/Books/deleteBook/${id}`)
+ try {
+     axios.delete(`${REACT_BASE_URL}/Books/deleteBook/${id}`)
     .then((response)=>{
-console.log(response)
 setOnConfirm(true);
 setShowBox(false)
 setDeleteBook(response.data);
@@ -31,7 +31,6 @@ navigate('/')
 
     })
     .catch((error)=>{
-      console.log(error)
       setDeleteBook(error.response.data)
       setOnConfirm(false);
       setShowBox(false)
@@ -42,20 +41,20 @@ navigate('/')
 
 
   })
+ } catch (error) {
+  console.log(error)
+ }
 
   }
 
   const onConfirm =()=>{
-  //  setOnConfirm(true);
    setShowBox(true);
     
   }
   const onCancel =()=>{
-    // setOnConfirm(false)
     setShowBox(false)
 
   }
-  console.log('disable'+ disable)
   return (
     <div className='text-gray-700 '>
   
@@ -68,7 +67,7 @@ navigate('/')
      <DeleteAlertComponent onCancel={onCancel} deleteFunction={deleteFunction} showBox={showBox} message={'You want to Delete this Book ?'}/>
 
      }
-     <ShowBook onDataLoad={()=>setDisable(false)} />
+     <ShowBook onDataLoad={()=>setDisable(false)} REACT_BASE_URL={REACT_BASE_URL}  error={interalError} />
  
     
 

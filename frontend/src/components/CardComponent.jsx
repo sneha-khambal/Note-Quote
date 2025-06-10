@@ -3,7 +3,7 @@ import { Link, useOutletContext } from 'react-router-dom';
 import { AiOutlineEdit } from 'react-icons/ai';
 import { BsInfoCircle } from 'react-icons/bs';
 import { MdOutlineAddBox, MdOutlineDelete } from 'react-icons/md'
-import { CreateNewEntryComponent } from '../components/CreateNewEntryComponent';
+import { CreateNewEntryComponent } from './CreateNewEntryComponent';
 
 export const CardComponent = ({books,internalError}) => {
   return (

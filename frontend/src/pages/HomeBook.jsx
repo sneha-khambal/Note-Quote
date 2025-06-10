@@ -11,7 +11,8 @@ import { ListComponent } from "../components/ListComponent";
 import { CardComponent } from "../components/CardComponent";
 import { DeleteAlertComponent } from "../components/deleteAlertComponent";
 
-export const HomeBook = () => {
+export const HomeBook = ({REACT_BASE_URL}) => {
+  console.log(REACT_BASE_URL)
   const [loading, setLoading] = useState(true);
 
   const [listButton, setListButton] = useState(() => {
@@ -24,14 +25,12 @@ export const HomeBook = () => {
   const [internalError, setInternalError] = useState("");
 
   useEffect(() => {
-    console.log(books);
     if (books != undefined && books.length == 0) {
       setLoading(true);
 
       axios
-        .get("http://localhost:3000/Books/getAllBooks")
+        .get(`${REACT_BASE_URL}/Books/getAllBooks`)
         .then((response) => {
-          console.log(response.data);
           setLoading(false);
           setInternalError("");
 
@@ -43,23 +42,19 @@ export const HomeBook = () => {
         })
         .catch((error) => {
           console.log(error);
-        
+
           setTimeout(() => {
             setLoading(false);
             setInternalError("Something went wrong. Try after sometime.");
           }, 2000);
-
-          
         });
     }
   }, [books]);
 
   const deleteAllRecords = () => {
     axios
-      .delete("http://localhost:3000/Books/deleteAllBooks")
+      .delete(`${REACT_BASE_URL}/Books/deleteAllBooks`)
       .then((res) => {
-        console.log(res.data);
-        console.log(res.data == "All Book deleted Successfully.");
         if (res.data == "All Book deleted Successfully.") {
           setBooks([]);
           setDeleteAll(false);
@@ -70,14 +65,12 @@ export const HomeBook = () => {
         console.log(error);
         setDeleteAll(false);
         setInternalError("Something went wrong. Try after sometime.");
-        window.scroll(0,0)
+        window.scroll(0, 0);
         setTimeout(() => {
-          setInternalError('')
+          setInternalError("");
         }, 3000);
       });
   };
-
-  console.log(deleteAll);
 
   return (
     <div className="p-4 text-gray-700 ">
@@ -101,19 +94,15 @@ export const HomeBook = () => {
       ) : (
         ""
       )}
-      <h1 className="text-3xl my-8 flex justify-center">
-      My Moments
-      </h1>
+      <h1 className="text-3xl my-8 flex justify-center">My Moments</h1>
       {loading ? (
         <Spinner />
       ) : (
         <div className="h-[344px] relative mb-5">
           {internalError != "" && !deleteAll ? (
-                 <p className="text-center text-red-600 font-bold responseText py-3">
+            <p className="text-center text-red-600 font-bold responseText py-3">
               {internalError}
             </p>
-          
-         
           ) : (
             <DeleteAlertComponent
               onCancel={() => {
@@ -125,15 +114,12 @@ export const HomeBook = () => {
             />
           )}
 
-    
- 
-{listButton    ? (
-          <ListComponent books={books}  internalError={internalError} />
-        ) : (
-          <CardComponent books={books} internalError={internalError} />
-        )}
-   
-        
+          {listButton ? (
+            <ListComponent books={books} internalError={internalError} />
+          ) : (
+            <CardComponent books={books} internalError={internalError} />
+          )}
+
           {books.length > 0 ? (
             <button
               className="flex bg-red-700 rounded px-3 py-3 text-white w-[120px] font-bold justify-center float-right mt-5 cursor-pointer mb-5"

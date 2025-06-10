@@ -1,32 +1,43 @@
 import express from 'express';
-import {PORT,MONGODB_LOCAL_URL} from './config.js';
+import {
+    PORT,
+    MONGODB_LOCAL_URL,
+    MONGODB_REMOTE_URL
+} from './config.js';
 import mongoose from 'mongoose';
-import { Book } from './model/bookModel.js';
+ 
 import bookRoutes from './routes/bookRoutes.js';
 import cors from 'cors';
 
 const app = express();
 app.use(express.json())
 app.use(cors({
-    origin:'http://localhost:5173',
+    origin: 'http://localhost:5173',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders:['content-type']
+    allowedHeaders: ['content-type']
 }))
 
-app.use('/Books',bookRoutes)
+app.use('/Books', bookRoutes)
+app.use('/uploads', express.static('uploads'));
 
 
 
 
+const dbUrl = MONGODB_REMOTE_URL || MONGODB_LOCAL_URL;
+const port = PORT || 3000
+mongoose.connect(dbUrl)
+    .then(() => {
+        try {
+            //    console.log('App connected to Database');
+            app.listen(port, () => {
+                // console.log('port listening on '+ port) 
+            });
 
-mongoose.connect(MONGODB_LOCAL_URL)
-.then(()=>{
-    try {
-       console.log('App connected to Database');
-       app.listen(PORT,()=>{console.log('port listening on '+ PORT)});
- 
-    } catch (error) {
-        
-    }
-})
 
+        } catch (error) {
+            console.log(error)
+        }
+    })
+    .catch((error) => {
+        console.log(error.message)
+    })

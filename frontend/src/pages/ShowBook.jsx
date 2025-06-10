@@ -5,18 +5,20 @@ import axios from "axios";
 import { BackButton } from "../components/BackButton";
 import readImage from "../assets/read-7577787_1280.jpg"; //
 
-export const ShowBook = ({ onDataLoad }) => {
+export const ShowBook = ({ onDataLoad ,REACT_BASE_URL,error }) => {
   const [bookDetails, setBookDetails] = useState();
   const [loading, setLoading] = useState(true);
-  const [internalError, setInternalError] = useState(true);
+  const [internalError, setInternalError] = useState('');
   const { id } = useParams();
-
+console.log(bookDetails)
+console.log(REACT_BASE_URL)
   useEffect(() => {
     if (bookDetails == undefined) {
       setLoading(true);
 
-      axios
-        .post(`http://localhost:3000/Books/getSingleBook/${id}`)
+    try {
+        axios
+        .post(`${REACT_BASE_URL}/Books/getSingleBook/${id}`)
         .then((response) => {
           setLoading(false);
           setInternalError("");
@@ -28,10 +30,11 @@ export const ShowBook = ({ onDataLoad }) => {
           setLoading(false);
           setInternalError("Something went wrong. Try after sometime.");
         });
+    } catch (error) {
+      console.log(error)
+    }
     }
   }, [bookDetails]);
-  // console.log(bookDetails.title)
-  console.log(loading);
   return (
     <div>
       {loading ? (
@@ -50,23 +53,19 @@ export const ShowBook = ({ onDataLoad }) => {
               </p>
             ) : (
               <div className="w-full h-full flex flex-col lg:flex-row">
-                {/* Image side */}
-                {/* <div 
-          className="h-1/2 lg:h-full lg:w-1/2 flex-none bg-cover bg-center rounded-t lg:rounded-t-none lg:rounded-l text-center overflow-hidden shadow-lg"
-          style={{ backgroundImage: `url(${bookDetails.image})` }}
-          title="Man holding a book"
-        >
-        </div> */}
-                <div class="h-1/2 lg:h-full lg:w-1/2 flex-none rounded-t lg:rounded-t-none lg:rounded-l overflow-hidden shadow-lg">
+     
+               {bookDetails.image ?
+                <div className="h-auto lg:w-1/2 flex-none rounded-t lg:rounded-t-none lg:rounded-l overflow-hidden shadow-lg">
                   <img
                     src={bookDetails.image}
-                    alt="Man holding a book"
-                    class="w-full h-full object-fit"
+                    alt="img"
+                    className="w-full h-full object-fit"
                   />
                 </div>
+                :''}
 
                 {/* Content side */}
-                <div className="w-full h-1/2 lg:h-full bg-white rounded-b lg:rounded-b-none lg:rounded-r p-8 flex flex-col justify-between leading-normal shadow-lg">
+                <div className="w-full h-full bg-white rounded-b lg:rounded-b-none lg:rounded-r p-8 flex flex-col justify-between leading-normal shadow-lg">
                   <div className="mb-8 overflow-visible overflow-x-hidden">
                     <p className="text-sm text-gray-600 flex items-center"></p>
                     <div className="text-gray-900 font-bold text-3xl mb-4 capitalize">
