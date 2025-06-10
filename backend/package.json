@@ -8,6 +8,10 @@
     "start": "node index.js",
     "dev": "nodemon index.js"
   },
+    "engines": {
+    "node": "20.x"
+  },
+  
   "author": "",
   "license": "ISC",
   "dependencies": {
