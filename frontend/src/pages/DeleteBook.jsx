@@ -3,9 +3,8 @@ import { Spinner } from '../components/Spinner';
 import { ShowBook } from './ShowBook';
 import axios from 'axios';
 import { Navigate, useNavigate, useParams } from 'react-router-dom';
-import { MdWarning } from 'react-icons/md';
-import { BackButton } from '../components/BackButton';
-import { DeleteAlertComponent } from 'frontend\src\components\DeleteAlertComponent.jsx';
+ 
+import { DeleteAlertComponent } from '../components/DeleteAlertComponent.jsx';
  
  
 
