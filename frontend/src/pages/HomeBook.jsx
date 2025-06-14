@@ -94,7 +94,7 @@ export const HomeBook = ({REACT_BASE_URL}) => {
       ) : (
         ""
       )}
-      <h1 className="text-3xl my-8 flex justify-center">My Moments</h1>
+      <h1 className="text-3xl my-8 flex justify-center">Note & Quote</h1>
       {loading ? (
         <Spinner />
       ) : (
