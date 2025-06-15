@@ -2,17 +2,19 @@ import express from 'express';
 import {
     PORT,
     MONGODB_LOCAL_URL,
-    MONGODB_REMOTE_URL
+    MONGODB_REMOTE_URL,
+    ORIGIN
 } from './config.js';
 import mongoose from 'mongoose';
  
 import bookRoutes from './routes/bookRoutes.js';
 import cors from 'cors';
-
+console.log(ORIGIN)
 const app = express();
 app.use(express.json())
 app.use(cors({
-    origin: 'https://mymoments-1.onrender.com',
+    // origin: `${ORIGIN} ` ,
+    origin:  'http://localhost:5173',
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['content-type']
 }))
