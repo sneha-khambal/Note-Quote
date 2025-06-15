@@ -5,8 +5,8 @@ import { DeleteBook } from './pages/DeleteBook';
 import { EditBook } from './pages/EditBook';
 import { HomeBook } from './pages/HomeBook';
 import { ShowBook } from './pages/ShowBook';
-// const url = import.meta.env.VITE_BASE_URL ;
-const url =   'http://localhost:5000';
+const url = import.meta.env.VITE_BASE_URL || 'http://localhost:5000'  ;
+// const url =   'http://localhost:5000';
 
  const App = () => {
 console.log(url)

@@ -13,8 +13,7 @@ console.log(ORIGIN)
 const app = express();
 app.use(express.json())
 app.use(cors({
-    // origin: `${ORIGIN} ` ,
-    origin:  'http://localhost:5173',
+    origin: `${ORIGIN} ` || 'http://localhost:5173' , 
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['content-type']
 }))
@@ -30,9 +29,9 @@ const port = PORT || 3000
 mongoose.connect(dbUrl)
     .then(() => {
         try {
-               console.log('App connected to Database');
+            //    console.log('App connected to Database');
             app.listen(port, () => {
-                console.log('port listening on '+ port) 
+                // console.log('port listening on '+ port) 
             });
 
 
