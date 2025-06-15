@@ -1,4 +1,4 @@
- export const PORT = 5000;
+ export const PORT = 'https://mymoments-wqzt.onrender.com';
  export const ORIGIN = 'https://mymoments-1.onrender.com';
  export const MONGODB_LOCAL_URL = "mongodb://127.0.0.1:27017/Read&Repeat"
 export const MONGODB_REMOTE_URL ="mongodb+srv://snehakhambal11:2ATWZtw9n49uXsZg@cluster0.jr3lvdx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
