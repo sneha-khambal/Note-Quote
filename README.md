@@ -62,7 +62,7 @@ node index.js
 ## 📁 Folder Structure
 
 ```
-MyMoments/
+Note-Quote/
 │
 ├── backend/
 │   ├── models/
