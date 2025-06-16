@@ -4,21 +4,15 @@ dotenv.config();
 import mongoose from 'mongoose';
  
 import bookRoutes from './routes/bookRoutes.js';
-import cors from 'cors';
-<<<<<<< HEAD
+import cors from 'cors'; 
 import dotenv from 'dotenv';
-dotenv.config(); 
-=======
->>>>>>> f699c107e54b44317fa3c0b9994096163aa8135e
+dotenv.config();  
  
 const app = express();
 app.use(express.json())
-app.use(cors({
-<<<<<<< HEAD
-    origin: ORIGIN || 'http://localhost:5173' , 
-=======
-    origin: process.env.ORIGIN || 'http://localhost:5173' , 
->>>>>>> f699c107e54b44317fa3c0b9994096163aa8135e
+app.use(cors({ 
+    origin: ORIGIN || 'http://localhost:5173' ,  
+    origin: process.env.ORIGIN || 'http://localhost:5173' ,  
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['content-type']
 }))
