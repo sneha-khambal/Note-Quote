@@ -1,4 +1,4 @@
-# 📓 MyMoments
+# 📓 Note&Quote
 
 Note & Quote is a full-stack web application that allows users to create, read, update, and delete personal notes and favorite quotes. It combines modern frontend and backend technologies for a seamless and responsive user experience
 
