@@ -37,7 +37,7 @@ Note & Quote is a full-stack web application that allows users to create, read, 
 ### Clone the Repository
 
 ```bash
-git https://github.com/sneha-khambal/mymoments.git
+git https://github.com/sneha-khambal/Note-Quote.git
 cd mymoments
 ```
 
