@@ -1,21 +1,24 @@
 import express from 'express';
-import {
-    PORT,
-    MONGODB_LOCAL_URL,
-    MONGODB_REMOTE_URL,
-    ORIGIN
-} from './config.js';
+import dotenv from 'dotenv';
+dotenv.config();
 import mongoose from 'mongoose';
  
 import bookRoutes from './routes/bookRoutes.js';
 import cors from 'cors';
+<<<<<<< HEAD
 import dotenv from 'dotenv';
 dotenv.config(); 
+=======
+>>>>>>> f699c107e54b44317fa3c0b9994096163aa8135e
  
 const app = express();
 app.use(express.json())
 app.use(cors({
+<<<<<<< HEAD
     origin: ORIGIN || 'http://localhost:5173' , 
+=======
+    origin: process.env.ORIGIN || 'http://localhost:5173' , 
+>>>>>>> f699c107e54b44317fa3c0b9994096163aa8135e
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['content-type']
 }))
