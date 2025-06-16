@@ -36,4 +36,8 @@ frontend/build/
 
 # Backend specific
 backend/node_modules/
+<<<<<<< HEAD
 backend/.env
+=======
+.env
+>>>>>>> 5ac94467b42ab4f6b2dee3df457fbd9546c07a0b
