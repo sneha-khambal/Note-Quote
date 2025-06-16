@@ -11,7 +11,7 @@ dist/
 build/
 
 # Environment variables
-# .env
+.env
 
 # IDE settings
 .vscode/
@@ -36,5 +36,4 @@ frontend/build/
 
 # Backend specific
 backend/node_modules/
-backend/config.js
-backend/uploads
+backend/.env
