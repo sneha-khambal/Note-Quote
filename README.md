@@ -1,6 +1,6 @@
 # 📓 MyMoments
 
-**MyMoments** is a full-stack web application built using the **MERN stack** (MongoDB, Express.js, React.js, and Node.js). It allows users to create, view, edit, and delete notes, each containing a **title**, **script**, **author**, and **image**.
+**MyMoments** is a full-stack web application built using the **MERN stack** (MongoDB, Express.js, React.js, and Node.js). It allows users to create, view, edit, and delete notes/quotes, each containing a **title**, **script**, **author**, and **image**.
 
 ---
 
@@ -54,9 +54,7 @@ npm install
 node index.js
 ```
 
-Make sure MongoDB is running locally or use a MongoDB Atlas URI.
-
----
+ 
 
 ## 📁 Folder Structure
 
@@ -66,7 +64,7 @@ MyMoments/
 ├── backend/
 │   ├── models/
 │   ├── routes/
-│   ├── uploads/
+│   ├── utils/
 │   └── index.js
 │
 ├── frontend/
@@ -83,7 +81,7 @@ MyMoments/
 
 ## 🧭 Navigation
 
-- **Home**: Shows all notes in card/list format.
+- **Home**: Shows all notes in card/list format and option to delete all notes all in one.
 - **Create**: Form to add a new note.
 - **Edit**: Edit an existing note.
 - **Show Info**: View single note details.
