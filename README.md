@@ -1,40 +1,43 @@
-# 📓 MyMoments
+# 📓 Note&Quote
 
-**MyMoments** is a full-stack web application built using the **MERN stack** (MongoDB, Express.js, React.js, and Node.js). It allows users to create, view, edit, and delete notes/quotes, each containing a **title**, **script**, **author**, and **image**.
+Note & Quote is a full-stack web application that allows users to create, read, update, and delete personal notes and favorite quotes. It combines modern frontend and backend technologies for a seamless and responsive user experience
 
 ---
 
 ## ✨ Features
+✍️ Create, update, and delete notes or quotes
 
-- 📝 Create new notes with detailed information.
-- 📋 View all notes as a **list** or **cards** on the home page.
-- 🔍 View a **single note** with complete information.
-- ✏️ Edit existing notes.
-- ❌ Delete individual notes or **delete all** at once.
-- 📁 Well-structured components with separate sections:
-  - Home
-  - Create
-  - Edit
-  - Delete
-  - Show Info
+🖼️ Upload and store images using Cloudinary
+
+🔐 Secure data handling with MongoDB Atlas
+
+⚙️ RESTful API powered by Node.js and Express
+
+🌐 Responsive frontend using React.js and Tailwind CSS
+
+ 
 
 ---
 
 ## 🚀 Tech Stack
+| Technology                 | Use            |
+| -------------------------- | -------------- |
+| React.js                   | Frontend UI    |
+| Tailwind CSS               | Styling        |
+| Node.js & Express.js       | Backend API    |
+| MongoDB Atlas              | Cloud Database |
+| Cloudinary                 | Image Uploads  |
+| Render                     | Deployment     |
 
-- **Frontend**: React.js, CSS3, Tailwind CSS
-- **Backend**: Node.js, Express.js
-- **Database**: MongoDB (Mongoose)
-- **Other Tools**: Axios (for API calls), React Router (for navigation)
 
 ---
 
-## 📦 Installation
+ 
 
 ### Clone the Repository
 
 ```bash
-git https://github.com/sneha-khambal/mymoments.git
+git https://github.com/sneha-khambal/Note-Quote.git
 cd mymoments
 ```
 
@@ -59,7 +62,7 @@ node index.js
 ## 📁 Folder Structure
 
 ```
-MyMoments/
+Note-Quote/
 │
 ├── backend/
 │   ├── models/
