@@ -20,7 +20,7 @@ app.use('/Books', bookRoutes)
 app.use('/uploads', express.static('uploads'));
 
 
-
+console.log(process.env.ORIGIN)
 
 const dbUrl = process.env.MONGODB_REMOTE_URL || process.env.MONGODB_LOCAL_URL;
 const port = process.env.PORT || 3000
