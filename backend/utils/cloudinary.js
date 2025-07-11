@@ -1,13 +1,8 @@
-import { v2 as cloudinary } from 'cloudinary';
-<<<<<<< HEAD
+import { v2 as cloudinary } from 'cloudinary'; 
 import { CLOUDINARY_API_KEY,CLOUDINARY_CLOUD_NAME,CLOUDINARY_API_SECRET } from '../config.js'
 import dotenv from 'dotenv';
-dotenv.config(); 
-
-=======
-import dotenv from 'dotenv';
-dotenv.config();
->>>>>>> f699c107e54b44317fa3c0b9994096163aa8135e
+dotenv.config();  
+ 
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,         // Replace with your Cloudinary cloud name
