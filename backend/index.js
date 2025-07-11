@@ -21,6 +21,7 @@ app.use('/uploads', express.static('uploads'));
 console.log(process.env.ORIGIN)
 
 const dbUrl = process.env.MONGODB_REMOTE_URL || process.env.MONGODB_LOCAL_URL;
+console.log('dbUrl',dbUrl)
 const port = process.env.PORT || 3000
 mongoose.connect(dbUrl)
     .then(() => {
